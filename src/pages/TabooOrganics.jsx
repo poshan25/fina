@@ -88,12 +88,12 @@ const TabooOrganicsPage = () => {
         {/* Hero Section */}
         <section className="px-6 py-30 md:py-16 md:mt-[-90px] flex flex-col md:flex-row items-center justify-between h-full">
           {/* Text Section */}
-          <div className="md:max-w-md text-left space-y-4">
+          <div className="max-w-[500px] text-left space-y-4">
             <p className="text-lg tracking-widest font-semibold text-gray-600 sm:text-lg">
               PREMIUM QUALITY PRODUCTS
             </p>
-            <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 mt-[-10px] text-[#4a5565]">
-              menonara Organics
+            <h1 className="text-xl sm:text-5xl font-bold mb-6 sm:mb-10 mt-[-10px] text-[#4a5565]">
+              Menonara Organics
             </h1>
             <p className="text-sm sm:text-[17px] font-semibold text-[#4a5565] md:text-gray-600">
               We Provide Premium Quality Products <br /> At Affordable Prices Compared <br />
