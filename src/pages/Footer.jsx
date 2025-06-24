@@ -7,7 +7,7 @@
 //           <div className=" md:flex   justify-between gap-5">
 //             {/* About Section */}
 //             <div>
-//               <h3 className="text-xl font-bold mb-4">melonaras Organics</h3>
+//               <h3 className="text-xl font-bold mb-4">menonaras Organics</h3>
 //               <p className="text-gray-700 max-w-[300px] mb-4">
 //                 Premium QUALITY products made with  organic ingredients and sustainable practices.
 //               </p>
@@ -67,7 +67,7 @@
 //           </div>
 
 //           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-//             <p>&copy; {new Date().getFullYear()} melonara Organics. All rights reserved.</p>
+//             <p>&copy; {new Date().getFullYear()} menonara Organics. All rights reserved.</p>
 //           </div>
 //         </div>
 //       </footer>
@@ -91,7 +91,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
           {/* About Section */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4">melonara Organics</h3>
+            <h3 className="text-xl font-bold mb-4">menonara Organics</h3>
             <p className="text-gray-700 mb-4 mx-auto md:mx-0 max-w-[300px]">
               Premium QUALITY products made with organic ingredients and sustainable practices.
             </p>
@@ -146,7 +146,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-300 mt-8 pt-6 text-center text-gray-600">
-          <p>&copy; {new Date().getFullYear()} melonara Organics. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} menonara Organics. All rights reserved.</p>
         </div>
       </div>
     </footer>
