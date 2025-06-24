@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import url('https://fonts.cdnfonts.com/css/borest');
+
+/* index.css */
+* {
+  font-family: 'Prata', serif;
+  letter-spacing: 1.5px;
+
+}
+
+@font-face {
+  font-family: 'Borest Regular';
+  src: url('/fonts/Borest-Regular.woff2') format('woff2'),
+       url('/fonts/Borest-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
