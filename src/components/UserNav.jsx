@@ -107,7 +107,7 @@
 //           <div className="flex flex-col items-center">
 //             <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-//               fina
+//               melonara
 //             </p>
 //           </div>
 
@@ -193,7 +193,7 @@ const UserNav = () => {
             <Link to="/">            <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 </Link>
             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-              Fina
+              Melonara
             </p>
           </div>
         </div>
