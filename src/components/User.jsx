@@ -325,22 +325,22 @@ const User = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#fcf1f7] to-[#fff4f4] px-4 sm:px-6 md:px-8 pb-20">
       <div className="max-w-7xl mx-auto">
-<div className="flex flex-col md:flex-row justify-between items-center p-6">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">
-    New Products
-  </h1>
+        <div className="flex flex-col md:flex-row justify-between items-center p-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">
+            New Products
+          </h1>
 
-  <div className="flex items-center bg-white rounded-md shadow-md overflow-hidden">
-    <input
-      type="text"
-      placeholder="Search..."
-      className="outline-none px-4 py-2 w-48 sm:w-64"
-    />
-    <button className=" p-2 cursor-pointer transition">
-      <FaSearch className="text-gray-700 text-xl" />
-    </button>
-  </div>
-</div>
+          <div className="flex items-center bg-white rounded-md shadow-md overflow-hidden">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="outline-none px-4 py-2 w-48 sm:w-64"
+            />
+            <button className=" p-2 cursor-pointer transition">
+              <FaSearch className="text-gray-700 text-xl" />
+            </button>
+          </div>
+        </div>
         {/* Mobile Layout */}
         <div className=" sm:hidden grid grid-cols-2 gap-3 mb-6">
           {products.map((product) => (
@@ -360,7 +360,10 @@ const User = () => {
                 <p className="text-xs font-medium text-green-600 mb-1">
                   Rs. {product.price}
                 </p>
-                <p className="text-[10px] text-gray-600 mb-2 line-clamp-2">
+                <p
+                
+                  className="text-[10px] text-gray-600 mb-2 line-clamp-2"
+                >
                   {product.description}
                 </p>
                 <div className="flex flex-col gap-1">
@@ -389,10 +392,12 @@ const User = () => {
               key={product.id}
               className="bg-[#f9f3ef] rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
             >
-              <img
+              <img 
+                                onClick={() => navigate(`/order/${product.id}`)}
+
                 src={product.image_url}
                 alt={product.name}
-                className="w-full h-52 sm:h-60 md:h-64 lg:h-72 object-cover"
+                className="w-full h-52 cursor-pointer sm:h-60 md:h-64 lg:h-72 object-cover"
               />
               <div className="p-4">
                 <h2 className="text-base font-semibold text-gray-800 mb-1 line-clamp-2">
@@ -401,13 +406,17 @@ const User = () => {
                 <p className="text-sm font-medium text-green-600 mb-2">
                   Rs. {product.price}
                 </p>
-                <p className="text-xs text-gray-600 mb-3 line-clamp-2">
+                <p 
+                                  onClick={() => navigate(`/order/${product.id}`)}
+
+                
+                className="text-xs cursor-pointer text-gray-600 mb-3 line-clamp-2">
                   {product.description}
                 </p>
                 <div className="flex justify-center flex-col sm:flex-row gap-2">
                   <button
                     onClick={() => navigate(`/order/${product.id}`)}
-                    className=" px-4  bg-green-500 hover:bg-green-600 text-white text-sm  rounded-md"
+                    className=" px-4 cursor-pointer bg-green-500 hover:bg-green-600 text-white text-sm  rounded-md"
                   >
                     Buy Now
                   </button>

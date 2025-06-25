@@ -38,7 +38,7 @@
 //               PREMIUM QUALITY PRODUCTS
 //             </p>
 //             <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 mt-[-10px] text-[#4a5565]">
-//               menonara Organics
+//               meonara Organics
 //             </h1>
 //             <p className="text-sm sm:text-[17px] font-semibold text-[#4a5565] md:text-gray-600">
 //               We Provide Premium Quality Products <br /> At Affordable Prices Compared <br />
@@ -93,7 +93,7 @@ const TabooOrganicsPage = () => {
               PREMIUM QUALITY PRODUCTS
             </p>
             <h1 className="text-xl sm:text-5xl font-bold mb-6 sm:mb-10 mt-[-10px] text-[#4a5565]">
-              Menonara Organics
+              Meonara Organics
             </h1>
             <p className="text-sm sm:text-[17px] font-semibold text-[#4a5565] md:text-gray-600">
               We Provide Premium Quality Products <br /> At Affordable Prices Compared <br />

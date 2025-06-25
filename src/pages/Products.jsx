@@ -1,4 +1,3 @@
-
 // import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import supabase from "../supabaseClient";
@@ -50,7 +49,7 @@
 //     <div className="min-h-screen bg-[#fff8f7]">
 //       <div className="px-4 sm:px-6 lg:px-38 pb-20">
 //         <UserNav />
-        
+
 //         <div className="max-w-7xl mx-auto">
 //           <h1 className="text-3xl pt-8 sm:pt-30 sm:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-800">
 //             New Products
@@ -67,7 +66,7 @@
 //                   alt={product.name}
 //                   className="w-full h-56 sm:h-64 object-cover"
 //                 />
-                
+
 //                 <div className="p-6">
 //                   <h2 className="text-xl font-bold text-gray-800 mb-2">
 //                     {product.name}
@@ -103,8 +102,6 @@
 // };
 
 // export default Products;
-
-
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -171,7 +168,7 @@ const Products = () => {
     <div className="min-h-screen bg-[#fff8f7]">
       <div className="px-4 sm:px-6 lg:px-38 pb-20">
         <UserNav />
-        
+
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl pt-8 sm:pt-30 sm:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-800">
             New Products
@@ -187,6 +184,7 @@ const Products = () => {
                     className="bg-[#f9f3ef] rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
                   >
                     <img
+                    
                       src={product.image_url}
                       alt={product.name}
                       className="w-full h-40 object-cover"

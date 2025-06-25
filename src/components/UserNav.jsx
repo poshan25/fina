@@ -1,3 +1,4 @@
+
 // // // // // // // // // // import React from "react";
 // // // // // // // // // // import { Link } from "react-router-dom";
 
@@ -107,7 +108,7 @@
 // // // // // // // //           <div className="flex flex-col items-center">
 // // // // // // // //             <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // // // // //               menonara
+// // // // // // // //               meonara
 // // // // // // // //             </p>
 // // // // // // // //           </div>
 
@@ -199,7 +200,7 @@
 // // // // // // //             <Link to="/">            <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // // // // </Link>
 // // // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // // // //               Menonara
+// // // // // // //               meonara
 // // // // // // //             </p>
 // // // // // // //           </div>
 // // // // // // //         </div>
@@ -349,7 +350,7 @@
 // // // // // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // // // //             </Link>
 // // // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // // // //               Menonara
+// // // // // // //               meonara
 // // // // // // //             </p>
 // // // // // // //           </div>
 // // // // // // //         </div>
@@ -530,7 +531,7 @@
 // // // // // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // // // //             </Link>
 // // // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // // // //               Menonara
+// // // // // // //               meonara
 // // // // // // //             </p>
 // // // // // // //           </div>
 // // // // // // //         </div>
@@ -704,7 +705,7 @@
 // // // // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // // //             </Link>
 // // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // // //               Menonara
+// // // // // //               meonara
 // // // // // //             </p>
 // // // // // //           </div>
 // // // // // //         </div>
@@ -917,7 +918,7 @@
 // // // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // // //             </Link>
 // // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // // //               Menonara
+// // // // //               meonara
 // // // // //             </p>
 // // // // //           </div>
 // // // // //         </div>
@@ -1131,7 +1132,7 @@
 // // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // // //             </Link>
 // // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // // //               Menonara
+// // // //               meonara
 // // // //             </p>
 // // // //           </div>
 // // // //         </div>
@@ -1312,7 +1313,7 @@
 // // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // // //             </Link>
 // // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// // //               Menonara
+// // //               meonara
 // // //             </p>
 // // //           </div>
 // // //         </div>
@@ -1503,7 +1504,7 @@
 // //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 // //             </Link>
 // //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-// //               Menonara
+// //               meonara
 // //             </p>
 // //           </div>
 // //         </div>
@@ -1722,7 +1723,7 @@
 //               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
 //             </Link>
 //             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-//               Menonara
+//               meonara
 //             </p>
 //           </div>
 //         </div>
@@ -1933,7 +1934,7 @@ const UserNav = () => {
               <img src="/images/mainLogo.png" alt="Taboo Logo" className="w-17" />
             </Link>
             <p className="text-xl font-semibold bg-[#a37733] text-transparent bg-clip-text">
-              Menonara
+              Meonara
             </p>
           </div>
         </div>

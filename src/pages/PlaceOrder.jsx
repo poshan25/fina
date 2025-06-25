@@ -213,6 +213,16 @@
 
 // export default PlaceOrder;
 
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import supabase from "../supabaseClient";
 import { useParams, useNavigate } from "react-router-dom";
@@ -249,38 +259,43 @@ const PlaceOrder = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleBuyAndRedirect = async () => {
-    const { data, error } = await supabase
-      .from("orders")
-      .insert([
-        {
-          user_id: userId,
-          product_id: product.id,
-          quantity: quantity,
-          status: "pending",
-        },
-      ])
-      .select();
 
-    if (error) {
-      console.error("Order error:", error);
-      alert("Failed to place order. Please try again.");
-      return;
-    }
+const handleBuyAndRedirect = async () => {
+  const { data, error } = await supabase
+    .from("orders")
+    .insert([
+      {
+        user_id: userId,
+        product_id: product.id,
+        quantity: quantity,
+        status: "pending",
+      },
+    ])
+    .select();
 
-    setPopupMsg("Order In Process");
+  if (error) {
+    console.error("Order error:", error);
+    alert("Failed to place order. Please try again.");
+    return;
+  }
 
-    const phoneNumber = "9779824143454";
+  setPopupMsg("Order In Process");
 
-    try {
-      // Shorten the image URL
-      const res = await axios.get(
-        `https://tinyurl.com/api-create.php?url=${product.image_url}`
-      );
-      const shortUrl = res.data;
+  const phoneNumber = "9779824143454";
 
-      const message = `
+  try {
+    // Shorten the image URL
+    const res = await axios.get(
+      `https://tinyurl.com/api-create.php?url=${product.image_url}`
+    );
+    const shortUrl = res.data;
+
+    const totalPrice = product.price * quantity;
+    
+    const message = `
  Price: ${product.price}
+ Quantity: ${quantity}
+ Total Price: ${totalPrice}
  Image: ${shortUrl}
  Name: ${product.name}
 
@@ -288,22 +303,80 @@ Hi, I want to buy this product.
 
 `;
 
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-        message
-      )}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
 
-      setTimeout(() => {
-        window.open(whatsappURL, "_blank");
-      }, 500);
+    setTimeout(() => {
+      window.open(whatsappURL, "_blank");
+    }, 500);
 
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
-    } catch (err) {
-      console.error("URL shortening error:", err);
-      alert("Failed to shorten image URL.");
-    }
-  };
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
+  } catch (err) {
+    console.error("URL shortening error:", err);
+    alert("Failed to shorten image URL.");
+  }
+};
+
+
+
+//   const handleBuyAndRedirect = async () => {
+//     const { data, error } = await supabase
+//       .from("orders")
+//       .insert([
+//         {
+//           user_id: userId,
+//           product_id: product.id,
+//           quantity: quantity,
+//           status: "pending",
+//         },
+//       ])
+//       .select();
+
+//     if (error) {
+//       console.error("Order error:", error);
+//       alert("Failed to place order. Please try again.");
+//       return;
+//     }
+
+//     setPopupMsg("Order In Process");
+
+//     const phoneNumber = "9779824143454";
+
+//     try {
+//       // Shorten the image URL
+//       const res = await axios.get(
+//         `https://tinyurl.com/api-create.php?url=${product.image_url}`
+//       );
+//       const shortUrl = res.data;
+
+//       const message = `
+//  Price: ${product.price}
+//  Image: ${shortUrl}
+//  Name: ${product.name}
+
+// Hi, I want to buy this product.
+
+// `;
+
+//       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+//         message
+//       )}`;
+
+//       setTimeout(() => {
+//         window.open(whatsappURL, "_blank");
+//       }, 500);
+
+//       setTimeout(() => {
+//         navigate("/");
+//       }, 1500);
+//     } catch (err) {
+//       console.error("URL shortening error:", err);
+//       alert("Failed to shorten image URL.");
+//     }
+//   };
 
   if (!productId)
     return (
