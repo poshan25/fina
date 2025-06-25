@@ -1,6 +1,3 @@
-
-
-
 // // // import { useState, useEffect } from "react";
 // // // import { useNavigate } from "react-router-dom";
 // // // import supabase from "../supabaseClient";
@@ -65,7 +62,7 @@
 // // //                 alt={product.name}
 // // //                 className="w-full h-40 object-cover"
 // // //               />
-              
+
 // // //               <div className="p-3">
 // // //                 <h2 className="text-sm font-bold text-gray-800 mb-1 line-clamp-2">
 // // //                   {product.name}
@@ -108,7 +105,7 @@
 // // //                 alt={product.name}
 // // //                 className="w-full h-48 sm:h-56 md:h-64 object-cover"
 // // //               />
-              
+
 // // //               <div className="p-4 sm:p-6">
 // // //                 <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
 // // //                   {product.name}
@@ -144,30 +141,6 @@
 // // // };
 
 // // // export default User;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // import { useState, useEffect } from "react";
 // // import { useNavigate } from "react-router-dom";
@@ -306,32 +279,10 @@
 
 // // export default User;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from "../supabaseClient";
+import { FaSearch } from "react-icons/fa";
 
 const User = () => {
   const navigate = useNavigate();
@@ -374,10 +325,22 @@ const User = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#fcf1f7] to-[#fff4f4] px-4 sm:px-6 md:px-8 pb-20">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800 pt-20">
-          New Products
-        </h1>
+<div className="flex flex-col md:flex-row justify-between items-center p-6">
+  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">
+    New Products
+  </h1>
 
+  <div className="flex items-center bg-white rounded-md shadow-md overflow-hidden">
+    <input
+      type="text"
+      placeholder="Search..."
+      className="outline-none px-4 py-2 w-48 sm:w-64"
+    />
+    <button className=" p-2 cursor-pointer transition">
+      <FaSearch className="text-gray-700 text-xl" />
+    </button>
+  </div>
+</div>
         {/* Mobile Layout */}
         <div className=" sm:hidden grid grid-cols-2 gap-3 mb-6">
           {products.map((product) => (
@@ -465,15 +428,6 @@ const User = () => {
 };
 
 export default User;
-
-
-
-
-
-
-
-
-
 
 // import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
