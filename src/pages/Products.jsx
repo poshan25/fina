@@ -184,7 +184,8 @@ const Products = () => {
                     className="bg-[#f9f3ef] rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
                   >
                     <img
-                    
+                                        onClick={() => navigate(`/order/${product.id}`)}
+
                       src={product.image_url}
                       alt={product.name}
                       className="w-full h-40 object-cover"

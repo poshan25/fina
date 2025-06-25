@@ -58,11 +58,13 @@
 
 // export default TabooOrganicsPage;
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserNav from "../components/UserNav";
 
 const TabooOrganicsPage = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+  
   return (
     <div className="md:px-38 relative w-full h-screen font-sans overflow-hidden">
       {/* Background Image (full screen) */}
@@ -83,7 +85,7 @@ const TabooOrganicsPage = () => {
 
       {/* Content Overlay */}
       <div className="relative text-[#1d2142] z-10 w-full h-full">
-        <UserNav />
+        <UserNav searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />
         
         {/* Hero Section */}
         <section className="px-6 py-30 md:py-16 md:mt-[-90px] flex flex-col md:flex-row items-center justify-between h-full">

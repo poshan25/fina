@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from './Nav'
 import UserProducts from './UserProducts'
 import Verify from '../components/Verify'
@@ -10,6 +10,8 @@ import BestSelling from '../components/BestSelling'
 // import BestSelling from '../components/BestSelling'
 
 const Home = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <div >
         {/* <Nav/> */}
@@ -17,7 +19,7 @@ const Home = () => {
 
         <TabooOrganics/>
         <BestSelling/>
-        <User/>
+        <User searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         {/* <BestSelling/> */}
         <Footer/>
         {/* <Verify/> */}

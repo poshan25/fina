@@ -1861,6 +1861,8 @@ import { FaSearch } from "react-icons/fa";
 
 const UserNav = () => {
   const [cartLength, setCartLength] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -2015,7 +2017,7 @@ const UserNav = () => {
                 <input
                   ref={searchInputRef}
                   type="text"
-                  value={searchQuery}
+                  value={searchQuery & searchTerm}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search products..."
                   className="w-full pl-3 pr-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#cc7c5d]"

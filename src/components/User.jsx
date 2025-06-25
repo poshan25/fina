@@ -288,6 +288,7 @@ const User = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -301,6 +302,10 @@ const User = () => {
     };
     fetchProducts();
   }, []);
+
+  const filteredProducts = products.filter((product) =>
+  product.name.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   async function addToCart(productId) {
     const { error } = await supabase
@@ -333,6 +338,8 @@ const User = () => {
           <div className="flex items-center bg-white rounded-md shadow-md overflow-hidden">
             <input
               type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search..."
               className="outline-none px-4 py-2 w-48 sm:w-64"
             />
@@ -360,10 +367,7 @@ const User = () => {
                 <p className="text-xs font-medium text-green-600 mb-1">
                   Rs. {product.price}
                 </p>
-                <p
-                
-                  className="text-[10px] text-gray-600 mb-2 line-clamp-2"
-                >
+                <p className="text-[10px] text-gray-600 mb-2 line-clamp-2">
                   {product.description}
                 </p>
                 <div className="flex flex-col gap-1">
@@ -387,14 +391,16 @@ const User = () => {
 
         {/* Desktop & Tablet Layout */}
         <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.map((product) => (
+          {/* {products.map((product) => ( */}
+                    {filteredProducts.map((product) => (
+
             <div
+
               key={product.id}
               className="bg-[#f9f3ef] rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-xl transition-all"
             >
-              <img 
-                                onClick={() => navigate(`/order/${product.id}`)}
-
+              <img
+                onClick={() => navigate(`/order/${product.id}`)}
                 src={product.image_url}
                 alt={product.name}
                 className="w-full h-52 cursor-pointer sm:h-60 md:h-64 lg:h-72 object-cover"
@@ -406,11 +412,10 @@ const User = () => {
                 <p className="text-sm font-medium text-green-600 mb-2">
                   Rs. {product.price}
                 </p>
-                <p 
-                                  onClick={() => navigate(`/order/${product.id}`)}
-
-                
-                className="text-xs cursor-pointer text-gray-600 mb-3 line-clamp-2">
+                <p
+                  onClick={() => navigate(`/order/${product.id}`)}
+                  className="text-xs cursor-pointer text-gray-600 mb-3 line-clamp-2"
+                >
                   {product.description}
                 </p>
                 <div className="flex justify-center flex-col sm:flex-row gap-2">
