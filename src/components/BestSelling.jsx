@@ -60,26 +60,27 @@ import React from 'react';
 import { CalendarDays, ShoppingBag, Gift, RefreshCw } from 'lucide-react';
 
 const features = [
-  {
-    icon: <CalendarDays size={35} className="text-pink-600 mx-auto" />,
-    title: 'Book An Appointment',
-    desc: 'At imperdiet dui accumsan sit amet nulla risus est ultricies quis.',
-  },
-  {
-    icon: <ShoppingBag size={35} className="text-pink-600 mx-auto" />,
-    title: 'Pick up in store',
-    desc: 'At imperdiet dui accumsan sit amet nulla risus est ultricies quis.',
-  },
-  {
-    icon: <Gift size={35} className="text-pink-600 mx-auto" />,
-    title: 'Special packaging',
-    desc: 'At imperdiet dui accumsan sit amet nulla risus est ultricies quis.',
-  },
-  {
-    icon: <RefreshCw size={35} className="text-pink-600 mx-auto" />,
-    title: 'Free global returns',
-    desc: 'At imperdiet dui accumsan sit amet nulla risus est ultricies quis.',
-  },
+ {
+  icon: <CalendarDays size={35} className="text-pink-600 mx-auto" />,
+  title: 'Book An Appointment',
+  desc: 'Schedule your visit with us easily and quickly online.',
+},
+{
+  icon: <ShoppingBag size={35} className="text-pink-600 mx-auto" />,
+  title: 'Pick up in store',
+  desc: 'Order online and pick up your items at your nearest store.',
+},
+{
+  icon: <Gift size={35} className="text-pink-600 mx-auto" />,
+  title: 'Special packaging',
+  desc: 'We offer beautiful packaging to make your gift extra special.',
+},
+{
+  icon: <RefreshCw size={35} className="text-pink-600 mx-auto" />,
+  title: 'Free National returns',
+  desc: 'Return your order for free anywhere in the country within 7 days.',
+},
+
 ];
 
 const BestSelling = () => {
