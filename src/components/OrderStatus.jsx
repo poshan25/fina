@@ -583,6 +583,15 @@
 // };
 
 // export default OrderStatus;
+
+
+
+
+
+
+
+
+
 import React, { useEffect, useState } from "react";
 import UserNav from "./UserNav";
 import supabase from "../supabaseClient";
@@ -669,9 +678,11 @@ const OrderStatus = () => {
       {!session ? (
         <div className="max-w-7xl mx-auto py-8 sm:py-12 text-center">
           <h2 className="text-xl mb-4">Please login to track your orders</h2>
+          <h2 className=" mb-4">Orders which are placed before login cannot be tracked</h2>
+
           <button
             onClick={signIn}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 cursor-pointer bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             Login with Google
           </button>
