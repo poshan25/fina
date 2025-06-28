@@ -580,56 +580,130 @@ const PlaceOrder = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleBuyAndRedirect = async () => {
-    // const { data: sessionData, error: sessionError } =
-    //   await supabase.auth.getSession();
+//   const handleBuyAndRedirect = async () => {
+//     // const { data: sessionData, error: sessionError } =
+//     //   await supabase.auth.getSession();
 
-    // if (sessionError) {
-    //   console.error("Session error:", sessionError);
-    //   alert("Failed to get user session!");
-    //   return;
-    // }
+//     // if (sessionError) {
+//     //   console.error("Session error:", sessionError);
+//     //   alert("Failed to get user session!");
+//     //   return;
+//     // }
 
-    // const session = sessionData.session;
+//     // const session = sessionData.session;
 
-    // if (!session || !session.user) {
-    //   alert("You must be logged in to place an order!");
-    //   return;
-    // }
+//     // if (!session || !session.user) {
+//     //   alert("You must be logged in to place an order!");
+//     //   return;
+//     // }
 
-    // const user = session.user;
+//     // const user = session.user;
 
-    const { error: orderError } = await supabase.from("orders").insert([
-      {
-        // user_id: user.id,
-        // email: user.email,
-        product_id: product.id,
-        quantity: quantity,
-        status: "pending",
-      },
-    ]);
+//     const { error: orderError } = await supabase.from("orders").insert([
+//       {
+//         // user_id: user.id,
+//         // email: user.email,
+//         product_id: product.id,
+//         quantity: quantity,
+//         status: "pending",
+//       },
+//     ]);
 
-    if (orderError) {
-      console.error("Order save error:", orderError);
-      alert("Failed to place order: " + orderError.message);
-      return;
-    }
+//     if (orderError) {
+//       console.error("Order save error:", orderError);
+//       alert("Failed to place order: " + orderError.message);
+//       return;
+//     }
 
-    console.log("Order placed!");
+//     console.log("Order placed!");
 
-    setPopupMsg("Order In Process");
+//     setPopupMsg("Order In Process");
 
-    const phoneNumber = "9779824143454";
+//     const phoneNumber = "9779824143454";
 
-    try {
-      const res = await axios.get(
-        `https://tinyurl.com/api-create.php?url=${product.image_url}`
-      );
-      const shortUrl = res.data;
+//     try {
+//       const res = await axios.get(
+//         `https://tinyurl.com/api-create.php?url=${product.image_url}`
+//       );
+//       const shortUrl = res.data;
 
-      const totalPrice = product.price * quantity;
+//       const totalPrice = product.price * quantity;
 
-      const message = `
+//       const message = `
+// Price: ${product.price}
+// Quantity: ${quantity}
+// Total Price: ${totalPrice}
+// Image: ${shortUrl}
+// Name: ${product.name}
+
+// Hi, I want to buy this product.
+// `;
+
+//       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+//         message
+//       )}`;
+
+//       setTimeout(() => {
+//         window.open(whatsappURL, "_blank");
+//       }, 500);
+
+//       setTimeout(() => {
+//         navigate("/");
+//       }, 1500);
+//     } catch (err) {
+//       console.error("URL shorten error:", err);
+//       alert("Failed to shorten image URL.");
+//     }
+//   };
+const handleBuyAndRedirect = async () => {
+  const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+
+  if (sessionError) {
+    console.error("Session error:", sessionError);
+    alert("Failed to get user session!");
+    return;
+  }
+
+  const session = sessionData.session;
+  let userId = null;
+  let userEmail = null;
+
+  if (session && session.user) {
+    userId = session.user.id;
+    // userEmail = session.user.email;
+  }
+
+  const { error: orderError } = await supabase.from("orders").insert([
+    {
+      user_id: userId,      // Will be null for guests
+      // email: userEmail,      // Optional: Save email if user is logged in
+      product_id: product.id,
+      quantity: quantity,
+      status: "pending",
+    },
+  ]);
+
+  if (orderError) {
+    console.error("Order save error:", orderError);
+    alert("Failed to place order: " + orderError.message);
+    return;
+  }
+
+  console.log("Order placed!");
+
+  setPopupMsg("Order In Process");
+
+  const phoneNumber = "9779824143454";
+
+  try {
+    const res = await axios.get(
+      `https://tinyurl.com/api-create.php?url=${product.image_url}`
+    );
+    const shortUrl = res.data;
+
+    const totalPrice = product.price * quantity;
+
+    const message = `
 Price: ${product.price}
 Quantity: ${quantity}
 Total Price: ${totalPrice}
@@ -639,22 +713,20 @@ Name: ${product.name}
 Hi, I want to buy this product.
 `;
 
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-        message
-      )}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-      setTimeout(() => {
-        window.open(whatsappURL, "_blank");
-      }, 500);
+    setTimeout(() => {
+      window.open(whatsappURL, "_blank");
+    }, 500);
 
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
-    } catch (err) {
-      console.error("URL shorten error:", err);
-      alert("Failed to shorten image URL.");
-    }
-  };
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
+  } catch (err) {
+    console.error("URL shorten error:", err);
+    alert("Failed to shorten image URL.");
+  }
+};
 
   if (!productId)
     return (
