@@ -213,25 +213,8 @@
 
 // export default PlaceOrder;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 // import React, { useState, useEffect } from "react";
 // import supabase from "../supabaseClient";
@@ -248,12 +231,12 @@
 //   const [product, setProduct] = useState(null);
 //   const [popupMsg, setPopupMsg] = useState("");
 //   const [isLoading, setIsLoading] = useState(true);
-  
+
 // const session = supabase.auth.getSession();
 // const user = session.user;
 
 // const placeOrder = async (productId, quantity) => {
- 
+
 //   const { data: { session }, error } = await supabase.auth.getSession();
 
 //   if (error) {
@@ -285,9 +268,6 @@
 //   }
 // };
 
-
-
-
 //   useEffect(() => {
 //     async function fetchProduct() {
 //       setIsLoading(true);
@@ -307,7 +287,6 @@
 //     }
 //     fetchProduct();
 //   }, [productId]);
-
 
 // const handleBuyAndRedirect = async () => {
 //   const { data, error } = await supabase
@@ -340,7 +319,7 @@
 //     const shortUrl = res.data;
 
 //     const totalPrice = product.price * quantity;
-    
+
 //     const message = `
 //  Price: ${product.price}
 //  Quantity: ${quantity}
@@ -368,8 +347,6 @@
 //     alert("Failed to shorten image URL.");
 //   }
 // };
-
-
 
 // //   const handleBuyAndRedirect = async () => {
 // //     const { data, error } = await supabase
@@ -565,21 +542,8 @@
 
 // export default PlaceOrder;
 
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
 
 import React, { useState, useEffect } from "react";
 import supabase from "../supabaseClient";
@@ -617,34 +581,33 @@ const PlaceOrder = () => {
   }, [productId]);
 
   const handleBuyAndRedirect = async () => {
-    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+    // const { data: sessionData, error: sessionError } =
+    //   await supabase.auth.getSession();
 
-    if (sessionError) {
-      console.error("Session error:", sessionError);
-      alert("Failed to get user session!");
-      return;
-    }
+    // if (sessionError) {
+    //   console.error("Session error:", sessionError);
+    //   alert("Failed to get user session!");
+    //   return;
+    // }
 
-    const session = sessionData.session;
+    // const session = sessionData.session;
 
-    if (!session || !session.user) {
-      alert("You must be logged in to place an order!");
-      return;
-    }
+    // if (!session || !session.user) {
+    //   alert("You must be logged in to place an order!");
+    //   return;
+    // }
 
-    const user = session.user;
+    // const user = session.user;
 
-    const { error: orderError } = await supabase
-      .from("orders")
-      .insert([
-        {
-          user_id: user.id,
-          // email: user.email,
-          product_id: product.id,
-          quantity: quantity,
-          status: "pending",
-        },
-      ]);
+    const { error: orderError } = await supabase.from("orders").insert([
+      {
+        // user_id: user.id,
+        // email: user.email,
+        product_id: product.id,
+        quantity: quantity,
+        status: "pending",
+      },
+    ]);
 
     if (orderError) {
       console.error("Order save error:", orderError);
@@ -768,7 +731,9 @@ Hi, I want to buy this product.
                       </label>
                       <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
                         <button
-                          onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                          onClick={() =>
+                            setQuantity((prev) => Math.max(1, prev - 1))
+                          }
                           className="px-4 py-2 bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
                         >
                           -
