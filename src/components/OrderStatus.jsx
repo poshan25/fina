@@ -595,6 +595,7 @@
 import React, { useEffect, useState } from "react";
 import UserNav from "./UserNav";
 import supabase from "../supabaseClient";
+import Footer from "../pages/Footer";
 
 const OrderStatus = () => {
   const [orders, setOrders] = useState([]);
@@ -672,7 +673,8 @@ const OrderStatus = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff8f7] px-4 sm:px-6 lg:px-38">
+    <div>
+      <div className="min-h-screen bg-[#fff8f7] px-4 sm:px-6 lg:px-38">
       <UserNav />
 
       {!session ? (
@@ -692,12 +694,7 @@ const OrderStatus = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">
             Order Status
           </h1>
-           <button
-              onClick={signOut}
-              className="px-3 py-1.5 bg-red-600 text-white rounded hover:bg-red-700"
-            >
-              Logout
-            </button>
+           
 
           {isLoading ? (
             <div className="flex justify-center items-center h-64">
@@ -709,7 +706,7 @@ const OrderStatus = () => {
                 No orders found
               </h3>
               <p className="text-sm sm:text-base text-gray-500 mt-2">
-                Recent orders will appear here
+                Recent     orders will appear here
               </p>
             </div>
           ) : (
@@ -780,6 +777,20 @@ const OrderStatus = () => {
         </div>
       )}
     </div>
+    
+
+        <Footer />
+                <div className="mx-auto w-full bg-[#f7ebe4] py-2 flex items-center justify-center">
+
+          <button
+              onClick={signOut}
+              className="px-3 py-1.5  bg-red-600 text-white rounded hover:bg-red-700"
+            >
+              Logout
+            </button>
+        </div>
+        
+</div>
   );
 };
 

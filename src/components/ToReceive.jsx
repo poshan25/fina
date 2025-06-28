@@ -290,6 +290,7 @@
 import React, { useEffect, useState } from 'react';
 import UserNav from './UserNav';
 import supabase from '../supabaseClient';
+import Footer from '../pages/Footer';
 
 const ToReceive = () => {
   const [orders, setOrders] = useState([]);
@@ -508,6 +509,7 @@ const signOut = async () => {
 //   );
 
 return (
+  <div>
   <div className="min-h-screen bg-[#fff8f7] px-4 sm:px-6 lg:px-8 xl:px-38">
     <UserNav />
 
@@ -544,12 +546,7 @@ return (
             </p>
             
           </div>
-          <button
-              onClick={signOut}
-              className="px-3 py-1.5 bg-red-600 text-white rounded hover:bg-red-700"
-            >
-              Logout
-            </button>
+          
 
           {isLoading ? (
             <div className="flex justify-center items-center h-64">
@@ -674,7 +671,19 @@ return (
         </div>
       </>
     )}
+
+</div>
+        <Footer />
+        <div className="mx-auto w-full bg-[#f7ebe4] py-2 flex items-center justify-center">
+          <button
+              onClick={signOut}
+              className="px-3 py-1.5  bg-red-600 text-white rounded hover:bg-red-700"
+            >
+              Logout
+            </button>
+        </div>
   </div>
+
 );
 
 
