@@ -23,6 +23,7 @@ import UserCart from "./components/UserCart";
 import UserProducts from "./pages/UserProducts";
 import OrderStatus from "./components/OrderStatus";
 import Products from "./pages/Products";
+import AdminAddedProducts from "./components/AdminAddedProducts";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
       <Route path="/" element={<Home />}></Route>
       <Route path="/adminprabesh1" element={<Admin />}></Route>
       <Route path="/adminAddProduct" element={<AdminAddProduct />}></Route>
+            <Route path="/adminAddedProducts" element={<AdminAddedProducts />}></Route>
+
       <Route path="/products" element={<Products />}></Route>
 
       <Route path="/userCart" element={<UserCart />}></Route>

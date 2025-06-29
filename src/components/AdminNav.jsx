@@ -10,6 +10,8 @@ const AdminNav = () => {
       <br />
       <Link to="/adminAddProduct">Add Product</Link>
       <br />
+            <Link to="/adminAddedProducts">Added Products</Link>
+<br />
       <Link to="/vieworder">View Order</Link>
       <br />
             <Link to="/">Switch Role</Link>
