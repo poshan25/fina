@@ -1056,12 +1056,12 @@ Hi, I want to buy this product.
                   >
                     Place order via WhatsApp
                   </button>
-                  <button
+                  {/* <button
                     onClick={handleBuyNow}
                     className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     Buy Now
-                  </button>
+                  </button> */}
 
                   <button
                     onClick={() => navigate(-1)}
