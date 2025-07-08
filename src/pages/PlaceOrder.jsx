@@ -888,7 +888,7 @@ Quantity: ${quantity}
 Total Price: Rs. ${totalPrice}
 Image: ${imageUrl}
 
-*Customer Message:*
+*Message to Seller:*
 Hi, I want to buy this product.
 `;
 
