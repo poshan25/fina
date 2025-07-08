@@ -823,6 +823,8 @@ const PlaceOrder = () => {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState(null);
+    const [session, setSession] = useState(null);
+
   const [popupMsg, setPopupMsg] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -906,6 +908,16 @@ Hi, I want to buy this product.
     }
   };
 
+  
+  const signIn = async () => {
+
+    alert("Please signin or login to place an order.");
+    // Redirect to Supabase OAuth login 
+
+    await supabase.auth.signInWithOAuth({ provider: "google" });
+  };
+
+
   const saveOrderToDatabase = async (userId) => {
     const orderData = {
       user_id: userId,
@@ -927,23 +939,41 @@ Hi, I want to buy this product.
     if (error) throw error;
   };
 
+  // const handleBuyNow = async () => {
+  //   try {
+  //     const { data: sessionData } = await supabase.auth.getSession();
+      
+  //     if (!sessionData.session) {
+  //       if (confirm("You need to login to proceed with the order. Do you want to login now?")) {
+  //         navigate("/login");
+  //       }
+  //       return;
+  //     }
+      
+  //     setShowForm(true);
+  //   } catch (error) {
+  //     console.error("Login check error:", error);
+  //     alert("Failed to check login status");
+  //   }
+  // };
+
+
   const handleBuyNow = async () => {
-    try {
-      const { data: sessionData } = await supabase.auth.getSession();
-      
-      if (!sessionData.session) {
-        if (confirm("You need to login to proceed with the order. Do you want to login now?")) {
-          navigate("/login");
-        }
-        return;
-      }
-      
-      setShowForm(true);
-    } catch (error) {
-      console.error("Login check error:", error);
-      alert("Failed to check login status");
+  try {
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      alert("Please login first to place order.");
+      // navigate("/");
+          await supabase.auth.signInWithOAuth({ provider: "google" });
+
+      return;
     }
-  };
+    setShowForm(true);
+  } catch (error) {
+    console.error("Login check error:", error);
+    alert("Failed to check login status");
+  }
+};
 
   const submitOrderForm = async () => {
     try {
@@ -984,7 +1014,10 @@ Hi, I want to buy this product.
             {popupMsg}
           </div>
         )}
+
+        
         <UserNav />
+       
 
         <main className="flex-grow">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -1056,12 +1089,20 @@ Hi, I want to buy this product.
                   >
                     Place order via WhatsApp
                   </button>
-                  {/* <button
-                    onClick={handleBuyNow}
+                   {/* <button
+                    // onClick={handleBuyNow}
+                     onClick={signIn}
                     className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     Buy Now
-                  </button> */}
+                  </button>  */}
+                  <button
+  onClick={handleBuyNow}
+  className="w-full mt-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+>
+  Buy Now
+</button>
+
 
                   <button
                     onClick={() => navigate(-1)}
@@ -1074,7 +1115,7 @@ Hi, I want to buy this product.
             </div>
 
             {/* Delivery Details Form */}
-            {showForm && (
+            {/* {showForm && (
               <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-6">Delivery Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1189,13 +1230,147 @@ Hi, I want to buy this product.
                   </button>
                 </div>
               </div>
-            )}
+            )} */}
+            {showForm && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center  backdrop-blur-[5px]">
+    <div className="w-[90%] md:w-[80%] max-h-[90%] overflow-y-auto bg-white p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold mb-6">Delivery Information</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* --- form fields same as before --- */}
+        {/* Full Name */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Phone Number */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Email */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Address */}
+        <div className="md:col-span-2">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label>
+          <input
+            type="text"
+            name="deliveryAddress"
+            value={formData.deliveryAddress}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* City */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Province */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Province</label>
+          <input
+            type="text"
+            name="province"
+            value={formData.province}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+
+        {/* Payment Method */}
+        <div className="md:col-span-2">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+          <select
+            name="paymentMethod"
+            value={formData.paymentMethod}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+          >
+            <option value="cashOnDelivery">Cash on Delivery</option>
+            <option value="esewa">eSewa</option>
+            <option value="khalti">Khalti</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-6 flex gap-4">
+        <button
+          type="button"
+          onClick={submitOrderForm}
+          className="flex-1 bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition"
+        >
+          Confirm Order
+        </button>
+        <button
+          type="button"
+          onClick={() => setShowForm(false)}
+          className="flex-1 border border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-50 transition"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
           </div>
         </main>
+      
       </div>
+          
       <Footer />
     </div>
-  );
-};
+          
+     
+          
+  )
+   
+
+}
+ 
+
 
 export default PlaceOrder;
+
+
+
+
+
