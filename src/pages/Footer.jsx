@@ -76,13 +76,17 @@
 
 // export default Footer
 
-
-
-
-import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import React from "react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-
 
 const Footer = () => {
   return (
@@ -93,19 +97,32 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">meonara Organics</h3>
             <p className="text-gray-700 mb-4 mx-auto md:mx-0 max-w-[300px]">
-              Premium QUALITY products made with organic ingredients and sustainable practices.
+              Premium QUALITY products made with organic ingredients and
+              sustainable practices.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
-              <a href="#" className="text-gray-700 hover:text-[#3b5998] transition-colors">
+              <a
+                href="#"
+                className="text-gray-700 hover:text-[#3b5998] transition-colors"
+              >
                 <FaFacebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#E1306C] transition-colors">
+              <a
+                href="#"
+                className="text-gray-700 hover:text-[#E1306C] transition-colors"
+              >
                 <FaInstagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#1DA1F2] transition-colors">
+              <a
+                href="#"
+                className="text-gray-700 hover:text-[#1DA1F2] transition-colors"
+              >
                 <FaTwitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#FF0000] transition-colors">
+              <a
+                href="#"
+                className="text-gray-700 hover:text-[#FF0000] transition-colors"
+              >
                 <FaYoutube className="w-5 h-5" />
               </a>
             </div>
@@ -127,8 +144,8 @@ const Footer = () => {
                 <FaMapMarkerAlt className="w-4 h-4 mr-2" />
                 Basantapur, Kathmandu, Nepal
               </li>
-              
-            {/* <Link to="/verify">Switch Role</Link> */}
+
+              {/* <Link to="/verify">Switch Role</Link> */}
             </ul>
           </div>
 
@@ -136,17 +153,49 @@ const Footer = () => {
           <div className="text-center md:ml-30 md:text-left">
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-700">
-              <li><a href="#" className="hover:text-blue-400 transition">Home</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Products</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">FAQ</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Privacy Policy</a></li>
+              <li>
+                <a href="#" className="hover:text-blue-400 transition">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-400 transition">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-400 transition">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-400 transition">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-blue-400 transition">
+                  Privacy Policy
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-300 mt-8 pt-6 text-center text-gray-600">
-          <p>&copy; {new Date().getFullYear()} meonara Organics. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} meonara Organics. All rights
+            reserved.
+          </p>
+
+          <div className="mt-5">
+            <Link
+              className="border p-2 rounded-xl  bg-blue-500 border-none text-gray-100"
+              to="/becomeseller"
+            >
+              Become A Seller
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

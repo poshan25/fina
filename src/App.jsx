@@ -24,6 +24,7 @@ import UserProducts from "./pages/UserProducts";
 import OrderStatus from "./components/OrderStatus";
 import Products from "./pages/Products";
 import AdminAddedProducts from "./components/AdminAddedProducts";
+import BecomeSeller from "./pages/BecomeSeller";
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
       <Route path="/orderStatus" element={<OrderStatus />}></Route>
 
       <Route path="/toReceive" element={<ToReceive />}></Route>
+
+      <Route path="/becomeseller" element={<BecomeSeller />}></Route>
 
       <Route path="/Received" element={<Received />}></Route>
 
