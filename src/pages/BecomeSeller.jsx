@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import supabase from "../supabaseClient";
 import UserNav from "../components/UserNav";
-  import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 import Footer from "./Footer";
 
@@ -11,16 +11,15 @@ const BecomeSeller = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
-  name: "",
-  shopName: "",
-  sellerEmail: "",
-  sellerPassword: "",
-  phone: "",
-  address: "",
-  emailOrPhone: "",  // ← Add this
-  password: "",      // ← Add this
-});
-
+    name: "",
+    shopName: "",
+    sellerEmail: "",
+    sellerPassword: "",
+    phone: "",
+    address: "",
+    emailOrPhone: "", // ← Add this
+    password: "", // ← Add this
+  });
 
   /////////////
 
@@ -34,8 +33,8 @@ const BecomeSeller = () => {
       .from("sellers")
       .select("*")
       // .or(`email.eq.${emailOrPhone},phone.eq.${emailOrPhone}`); // match either
-      .or(`email.eq.${emailOrPhone}`).or(`phone.eq.${emailOrPhone}`)
-
+      .or(`email.eq.${emailOrPhone}`)
+      .or(`phone.eq.${emailOrPhone}`);
 
     if (error || sellers.length === 0) {
       alert("Seller not found");
@@ -58,9 +57,6 @@ const BecomeSeller = () => {
     }
   };
 
-
-
-
   ///////////////////
 
   const handleChange = (e) => {
@@ -70,30 +66,29 @@ const BecomeSeller = () => {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const newSellerId = uuidv4(); // generate unique id
+    const newSellerId = uuidv4(); // generate unique id
 
-  const { error } = await supabase.from("sellers").insert([
-    {
-      seller_id: newSellerId,
-      name: formData.name,
-      shop_name: formData.shopName,
-      email: formData.sellerEmail,
-      password: formData.sellerPassword,
-      phone: formData.phone,
-      address: formData.address,
-    },
-  ]);
+    const { error } = await supabase.from("sellers").insert([
+      {
+        seller_id: newSellerId,
+        name: formData.name,
+        shop_name: formData.shopName,
+        email: formData.sellerEmail,
+        password: formData.sellerPassword,
+        phone: formData.phone,
+        address: formData.address,
+      },
+    ]);
 
-  if (error) {
-    alert("Error creating seller: " + error.message);
-  } else {
-    alert("You are now a seller!");
-  }
-};
-
+    if (error) {
+      alert("Error creating seller: " + error.message);
+    } else {
+      alert("You are now a seller!");
+    }
+  };
 
   const openSignUpForm = () => {
     setIsLoggedIn(true);
@@ -257,4 +252,3 @@ const handleSubmit = async (e) => {
 };
 
 export default BecomeSeller;
-
