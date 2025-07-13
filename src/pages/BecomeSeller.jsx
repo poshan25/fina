@@ -17,8 +17,8 @@ const BecomeSeller = () => {
     sellerPassword: "",
     phone: "",
     address: "",
-    emailOrPhone: "", // ← Add this
-    password: "", // ← Add this
+    emailOrPhone: "", 
+    password: "", 
   });
 
   /////////////
@@ -56,6 +56,12 @@ const BecomeSeller = () => {
       alert("Incorrect password");
     }
   };
+
+
+
+  // const redirectToSellerPage = () => {
+
+  // }
 
   ///////////////////
 
@@ -204,6 +210,9 @@ const BecomeSeller = () => {
                   className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
                 />
                 <button
+                //  onClick={() => {
+                //     redirectToSellerPage();
+                //   }}
                   type="submit"
                   className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-700 transition"
                 >
