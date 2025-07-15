@@ -33,8 +33,8 @@ const BecomeSeller = () => {
       .from("sellers")
       .select("*")
       // .or(`email.eq.${emailOrPhone},phone.eq.${emailOrPhone}`); // match either
-      .or(`email.eq.${emailOrPhone}`)
-      .or(`phone.eq.${emailOrPhone}`);
+    .or(`email.eq.${emailOrPhone},phone.eq.${emailOrPhone}`);
+
 
     if (error || sellers.length === 0) {
       alert("Seller not found");
@@ -51,7 +51,7 @@ const BecomeSeller = () => {
       localStorage.setItem("seller_id", seller.seller_id);
 
       // Navigate to admin panel
-      window.location.href = "/seller-dashboard"; // change path as needed
+      window.location.href = "/admin"; // change path as needed
     } else {
       alert("Incorrect password");
     }
@@ -199,7 +199,7 @@ const BecomeSeller = () => {
                   placeholder="Mobile Number / Email"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <input
                   type="password"
@@ -207,14 +207,14 @@ const BecomeSeller = () => {
                   placeholder="Password"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <button
                 //  onClick={() => {
                 //     redirectToSellerPage();
                 //   }}
                   type="submit"
-                  className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-700 transition"
+                  className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700 transition"
                 >
                   Login
                 </button>
@@ -223,11 +223,11 @@ const BecomeSeller = () => {
                     openSignUpForm();
                   }}
                   type="button"
-                  className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-700 transition"
+                  className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700 transition"
                 >
                   Sign up
                 </button>
-                <div className="text-right text-sm text-orange-600 hover:underline cursor-pointer">
+                <div className="text-right text-sm text-blue-600 hover:underline cursor-pointer">
                   Reset password
                 </div>
                 <p className="text-xs text-gray-500 text-center mt-4">
@@ -236,7 +236,7 @@ const BecomeSeller = () => {
                     href="https://university.daraz.com.np/course/learn?id=42214"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-orange-600 underline"
+                    className="text-blue-600 underline"
                   >
                     Terms & Conditions
                   </a>{" "}
@@ -245,7 +245,7 @@ const BecomeSeller = () => {
                     href="https://pages.daraz.com.np/wow/i/np/help-pages/privacy"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-orange-600 underline"
+                    className="text-blue-600 underline"
                   >
                     Privacy Policy
                   </a>

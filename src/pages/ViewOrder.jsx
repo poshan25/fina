@@ -252,6 +252,13 @@ const ViewOrder = () => {
 
   useEffect(() => {
     async function fetchOrders() {
+        const sellerId = localStorage.getItem("seller_id"); // get current seller id
+        console.log(sellerId)
+        if (!sellerId) {
+    console.error("Seller ID not found in localStorage.");
+    setLoading(false);
+    return;
+  }
       let { data, error } = await supabase
         .from("orders")
         .select(`
