@@ -338,16 +338,30 @@ const AdminAddedProducts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [editingProduct, setEditingProduct] = useState(null);
 
-  // Fetch products from Supabase
   const fetchProducts = async () => {
-    const { data, error } = await supabase.from("products").select("*");
-    if (error) {
-      console.error("Error fetching products:", error);
-    } else {
-      setProducts(data);
-    }
+  const sellerId = localStorage.getItem("seller_id"); // get current seller id
+  console.log(sellerId)
+
+  if (!sellerId) {
+    console.error("Seller ID not found in localStorage.");
     setLoading(false);
-  };
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("seller_id", sellerId); // only fetch products with this seller_id
+
+  if (error) {
+    console.error("Error fetching products:", error);
+  } else {
+    setProducts(data);
+  }
+
+  setLoading(false);
+};
+
 
   useEffect(() => {
     fetchProducts();
