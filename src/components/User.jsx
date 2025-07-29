@@ -721,6 +721,11 @@
 
 // for showing both products from user-supabase and api
 
+// fetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../supabaseClient";
@@ -733,16 +738,19 @@ const User = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data, error } = await supabase.from("products").select("*");
-      if (error) {
-        console.error("Error fetching products:", error);
-      } else {
-        setProducts(data);
-      }
-      setLoading(false);
-    };
-    fetchProducts();
+    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+    // const fetchProducts = async () => {
+    //   const { data, error } = await supabase.from("products").select("*");
+    //   if (error) {
+    //     console.error("Error fetching products:", error);
+    //   } else {
+    //     setProducts(data);
+    //   }
+    //   setLoading(false);
+    // };
+    // fetchProducts();
   }, []);
 
   const filteredProducts = products.filter((product) =>
