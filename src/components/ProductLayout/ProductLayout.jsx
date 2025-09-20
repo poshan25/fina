@@ -15,6 +15,7 @@ const ProductCard = () => {
             />
           </div>
 
+
           {/* 2. Product Image */}
           <div className="w-full">
             <img
