@@ -344,6 +344,7 @@ const AdminAddedProducts = () => {
 
   if (!sellerId) {
     console.error("Seller ID not found in localStorage.");
+    
     setLoading(false);
     return;
   }
