@@ -16,8 +16,9 @@ const BelowNavbar = () => {
     "Mom & Baby",
   ];
 
+  
   return (
-    <div className="first-line flex ">
+    <div className="first-line flex primaryLine">
       <div className="nav-list flex items-center justify-between w-full bg-white shadow-md p-4">
         {categories.map((category, index) => (
           <div
@@ -33,5 +34,6 @@ const BelowNavbar = () => {
     </div>
   );
 };
+
 
 export default BelowNavbar;
