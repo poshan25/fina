@@ -83,6 +83,9 @@
 
 
 
+
+
+
 import React from "react";
 import AdminNav from "./AdminNav";
 import Footer from "./Footer";
@@ -113,7 +116,7 @@ const AdminLayout = () => {
               </div>
               <div className="bg-[#ffeaea] rounded-xl p-6 shadow hover:shadow-md transition border border-pink-200">
                 <h2 className="text-2xl font-semibold mb-2">👥 Users</h2>
-                <p className="text-sm text-gray-700">See all registered users.</p>
+                <p className="text-sm  text-gray-800">See all registered users.</p>
               </div>
             </div>
           </div>
@@ -125,3 +128,4 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
+
